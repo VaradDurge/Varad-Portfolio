@@ -15,51 +15,45 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#F4F1EB",
-          color: "#1A1814",
+          background: "#000000",
+          color: "#EDEDF0",
         }}
       >
         <div
           style={{
             display: "flex",
-            fontSize: 20,
-            letterSpacing: "0.14em",
+            fontSize: 18,
+            letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: "#7A7368",
+            color: "#A1A1AA",
             fontFamily: "monospace",
             marginBottom: 28,
           }}
         >
-          Pune · PICT ’27
+          Founder · Argus Labs
         </div>
         <div
           style={{
             display: "flex",
-            fontSize: 64,
-            fontWeight: 500,
-            letterSpacing: "-0.02em",
-            lineHeight: 1.1,
+            fontSize: 72,
+            fontWeight: 400,
+            letterSpacing: "-0.03em",
+            lineHeight: 1.05,
+            fontFamily: "Georgia, serif",
           }}
         >
-          Varad Durge
+          Varad Durge.
         </div>
         <div
           style={{
-            width: 56,
-            height: 2,
-            background: "#0F6E6A",
-            marginTop: 24,
-            marginBottom: 24,
-          }}
-        />
-        <div
-          style={{
             display: "flex",
-            fontSize: 28,
-            color: "#3A3530",
+            fontSize: 26,
+            color: "#A1A1AA",
+            marginTop: 28,
+            maxWidth: 720,
           }}
         >
-          Founder of Argus Labs · ECE @ PICT
+          Forensic observability for AI agent pipelines.
         </div>
       </div>
     ),

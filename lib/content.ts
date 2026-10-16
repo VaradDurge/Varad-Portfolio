@@ -10,37 +10,40 @@ export const site = {
 };
 
 export const hero = {
-  headlineBefore: "Founder of ",
-  headlineLink: {
-    label: "Argus Labs",
-    href: "https://arguslabs.in",
-  },
-  headlineAfter: " · ECE @ PICT",
-  fellow: {
-    label: "16VC Founder Fellow",
-    href: "https://16vc.co",
-  },
-  support:
-    "Building forensic observability for AI agent pipelines. Currently in beta.",
-  ctas: [
-    { label: "Argus", href: "https://arguslabs.in", external: true },
-    { label: "Contact", href: "#contact", external: false },
+  name: "Varad Durge.",
+  tagline:
+    "Building forensic observability for AI agent pipelines. Founder of Argus Labs · ECE @ PICT ’27.",
+  cta: { label: "see my work", href: "#builds" },
+  chips: [
+    { label: "building Argus", href: "https://arguslabs.in" },
+    { label: "16VC Founder Fellow", href: "https://16vc.co" },
+    { label: "open to founders", href: "#contact" },
   ],
+  banner: "/banner.png",
+  profile: "/profile.jpg",
 };
 
 export const about = {
-  before:
-    "I’m 20, studying Electronics and Computer Engineering at PICT, Pune (Class of 2027). I founded ",
-  argus: {
-    label: "Argus Labs",
-    href: "https://arguslabs.in",
-  },
-  mid: ", co-build ",
-  kami: {
-    label: "Kami",
-    href: "https://www.trykami.app",
-  },
-  after: ", and spend time in founder programs and builder rooms around India.",
+  paragraphs: [
+    "I’m 20, studying Electronics and Computer Engineering at PICT, Pune (Class of 2027). I founded Argus Labs, co-build Kami, and spend time in founder programs and builder rooms around India.",
+    "Argus is forensic observability for AI agent pipelines — currently in beta. I care about shipping systems that hold up when agents fail in production, not just demos that look good in a slide deck.",
+  ],
+  links: [
+    {
+      label: "Argus Labs",
+      href: "https://x.com/VaraadDurgaay/status/2107335870475104563?s=20",
+    },
+    {
+      label: "Kami",
+      href: "https://x.com/VaraadDurgaay/status/2080681555916423679?s=20",
+    },
+  ],
+  snapshot: [
+    "Building Argus Labs (beta).",
+    "Co-building Kami.",
+    "16VC Founder Fellow.",
+    "In founder rooms across India.",
+  ],
 };
 
 export type BuildLink = {
@@ -52,7 +55,10 @@ export type Build = {
   id: string;
   name: string;
   status: string;
+  year: string;
+  featured: boolean;
   blurb: string;
+  stack: string[];
   links: BuildLink[];
 };
 
@@ -61,7 +67,10 @@ export const builds: Build[] = [
     id: "argus",
     name: "Argus Labs",
     status: "Beta",
+    year: "2025",
+    featured: true,
     blurb: "Forensic observability for AI agent pipelines.",
+    stack: ["TypeScript", "Node.js", "React", "Postgres"],
     links: [
       { label: "Website", href: "https://arguslabs.in" },
       { label: "GitHub", href: "https://github.com/VaradDurge/ARGUS" },
@@ -70,8 +79,11 @@ export const builds: Build[] = [
   {
     id: "kami",
     name: "Kami",
-    status: "Open source",
+    status: "Live",
+    year: "2025",
+    featured: true,
     blurb: "AI GTM for early-stage startups. 57★ on GitHub.",
+    stack: ["TypeScript", "React", "Python", "LLMs"],
     links: [
       { label: "Website", href: "https://www.trykami.app" },
       { label: "GitHub", href: "https://github.com/saranambiar/kami" },
@@ -81,7 +93,10 @@ export const builds: Build[] = [
     id: "promptfuzz",
     name: "PromptFuzz",
     status: "Public",
+    year: "2025",
+    featured: true,
     blurb: "Adversarial LLM security testing CLI.",
+    stack: ["Python", "Click", "httpx", "pytest"],
     links: [
       { label: "GitHub", href: "https://github.com/VaradDurge/PromptFuzz" },
     ],
@@ -146,7 +161,8 @@ export const proofClusters: ProofCluster[] = [
       {
         id: "ef",
         marks: [{ logo: "ef", label: "EF Bangalore" }],
-        detail: "Reached the final rounds of the EF Bangalore interview process.",
+        detail:
+          "Selected for EF Bangalore — said no due to academic commitments.",
       },
       {
         id: "naitive",
@@ -174,6 +190,26 @@ export const proofClusters: ProofCluster[] = [
     ],
   },
 ];
+
+export const skills = {
+  filters: ["All", "Founder", "Product", "Engineering"] as const,
+  items: [
+    { label: "TypeScript", tags: ["Engineering", "Product"] },
+    { label: "React", tags: ["Engineering", "Product"] },
+    { label: "Next.js", tags: ["Engineering", "Product"] },
+    { label: "Node.js", tags: ["Engineering"] },
+    { label: "Python", tags: ["Engineering"] },
+    { label: "Postgres", tags: ["Engineering"] },
+    { label: "LLMs / Agents", tags: ["Engineering", "Product", "Founder"] },
+    { label: "Observability", tags: ["Engineering", "Founder"] },
+    { label: "GTM", tags: ["Founder", "Product"] },
+    { label: "Fundraising", tags: ["Founder"] },
+    { label: "Product Design", tags: ["Product", "Founder"] },
+    { label: "Git / GitHub", tags: ["Engineering"] },
+    { label: "Vercel", tags: ["Engineering"] },
+    { label: "System Design", tags: ["Engineering"] },
+  ],
+};
 
 export type ContactIcon =
   | "email"
@@ -216,8 +252,25 @@ export const contacts: ContactLink[] = [
   },
 ];
 
+export const contactCloser =
+  "Building in public. Happy to talk Argus, Kami, or founder things.";
+
 export const nav = [
-  { label: "Work", href: "#builds" },
-  { label: "Signal", href: "#proof" },
-  { label: "Contact", href: "#contact" },
+  { label: "about", href: "#about" },
+  { label: "signal", href: "#signal" },
+  { label: "builds", href: "#builds" },
+  { label: "stack", href: "#stack" },
+  { label: "contact", href: "#contact" },
+];
+
+export const commandLinks = [
+  { label: "About", href: "#about", group: "Navigate" },
+  { label: "Signal", href: "#signal", group: "Navigate" },
+  { label: "Builds", href: "#builds", group: "Navigate" },
+  { label: "Stack", href: "#stack", group: "Navigate" },
+  { label: "Contact", href: "#contact", group: "Navigate" },
+  { label: "Argus Labs", href: "https://arguslabs.in", group: "Links", external: true },
+  { label: "Kami", href: "https://www.trykami.app", group: "Links", external: true },
+  { label: "GitHub", href: "https://github.com/VaradDurge", group: "Links", external: true },
+  { label: "Email", href: "mailto:varaddurge@gmail.com", group: "Links", external: true },
 ];

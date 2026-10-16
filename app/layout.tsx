@@ -1,25 +1,27 @@
 import type { Metadata } from "next";
-import { Syne, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
+import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { site } from "@/lib/content";
 import "./globals.css";
 
-const syne = Syne({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-inter",
   display: "swap",
 });
 
-const sourceSerif = Source_Serif_4({
+const instrument = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-source-serif",
+  weight: "400",
+  variable: "--font-instrument",
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
+const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
-  variable: "--font-plex-mono",
+  variable: "--font-jetbrains",
   display: "swap",
 });
 
@@ -63,6 +65,16 @@ export const metadata: Metadata = {
   },
 };
 
+const themeScript = `
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t === 'light') document.documentElement.classList.add('light');
+    else document.documentElement.classList.remove('light');
+  } catch (e) {}
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -71,10 +83,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${sourceSerif.variable} ${plexMono.variable}`}
+      suppressHydrationWarning
+      className={`${inter.variable} ${instrument.variable} ${jetbrains.variable}`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
-        <SmoothScroll>{children}</SmoothScroll>
+        <ThemeProvider>
+          <SmoothScroll>{children}</SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );

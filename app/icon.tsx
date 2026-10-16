@@ -13,14 +13,15 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#14120F",
-          color: "#F3EFE8",
-          fontSize: 16,
-          fontWeight: 700,
+          background: "#000000",
+          color: "#EDEDF0",
+          fontSize: 14,
+          fontWeight: 600,
           letterSpacing: "-0.04em",
+          fontFamily: "Georgia, serif",
         }}
       >
-        VD
+        V
       </div>
     ),
     { ...size },
