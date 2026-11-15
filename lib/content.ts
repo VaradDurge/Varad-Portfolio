@@ -1,4 +1,5 @@
 import type { BrandId } from "@/components/BrandMark";
+import { argusDownloadsSvg } from "@/lib/argusDownloads";
 
 export const site = {
   name: "Varad Durge",
@@ -51,10 +52,17 @@ export type BuildLink = {
   href: string;
 };
 
+export type BuildMetric = {
+  label: string;
+  href: string;
+  chartSvg?: string;
+};
+
 export type Build = {
   id: string;
   name: string;
   status?: string;
+  metric?: BuildMetric;
   year: string;
   featured: boolean;
   blurb: string;
@@ -66,9 +74,14 @@ export const builds: Build[] = [
   {
     id: "argus",
     name: "Argus Labs",
+    metric: {
+      label: "12k+ installs on PyPI",
+      href: "https://pypistats.org/packages/argus-agents",
+      chartSvg: argusDownloadsSvg,
+    },
     year: "2025",
     featured: true,
-    blurb: "Forensic observability for AI agent pipelines. 12k+ installs on PyPI.",
+    blurb: "Forensic observability for AI agent pipelines.",
     stack: ["Python", "LangGraph", "Next.js", "Supabase"],
     links: [
       { label: "Website", href: "https://arguslabs.in" },

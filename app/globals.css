@@ -7,6 +7,7 @@
   --fg: 237 237 240;
   --muted: 161 161 170;
   --accent: 255 255 255;
+  --turquoise: 45 226 210;
 }
 
 html.light {
@@ -16,6 +17,7 @@ html.light {
   --fg: 24 24 27;
   --muted: 82 82 91;
   --accent: 0 0 0;
+  --turquoise: 13 148 136;
 }
 
 @theme inline {
@@ -25,6 +27,7 @@ html.light {
   --color-fg: rgb(var(--fg));
   --color-muted: rgb(var(--muted));
   --color-accent: rgb(var(--accent));
+  --color-turquoise: rgb(var(--turquoise));
   --font-sans: var(--font-inter);
   --font-serif: var(--font-instrument);
   --font-mono: var(--font-jetbrains);
@@ -161,6 +164,26 @@ html.light {
 
   .caret-blink {
     animation: caret-blink 1.1s step-end infinite;
+  }
+
+  /* Argus downloads chart (lib/argusDownloads.ts) */
+  .dl-bg {
+    fill: rgb(var(--surface));
+  }
+  .dl-title {
+    fill: rgb(var(--fg));
+  }
+  .dl-muted {
+    fill: rgb(var(--muted));
+  }
+  .dl-grid {
+    stroke: rgb(var(--border));
+  }
+  .dl-line {
+    stroke: rgb(var(--turquoise));
+  }
+  .dl-area {
+    fill: rgb(var(--turquoise) / 0.15);
   }
 }
 

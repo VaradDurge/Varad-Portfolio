@@ -2,7 +2,30 @@
 
 import { useState } from "react";
 import { AccordionSection } from "@/components/AccordionSection";
-import { builds, type Build } from "@/lib/content";
+import { builds, type Build, type BuildMetric } from "@/lib/content";
+
+function MetricPill({ metric }: { metric: BuildMetric }) {
+  return (
+    <>
+      <a
+        href={metric.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="peer rounded-full border border-turquoise/50 bg-turquoise/10 px-2.5 py-0.5 font-mono text-[11px] font-medium text-turquoise shadow-[0_0_12px_rgb(var(--turquoise)/0.25)] transition-colors hover:bg-turquoise/20"
+      >
+        {metric.label}
+      </a>
+      {metric.chartSvg ? (
+        // Chart is a static string from lib/argusDownloads.ts, never user input.
+        <div
+          aria-hidden
+          className="pointer-events-none invisible absolute top-full left-0 z-20 mt-2 w-[min(28rem,calc(100vw-4rem))] origin-top-left translate-y-1 scale-95 rounded-lg border border-border bg-surface p-2 opacity-0 shadow-xl transition duration-200 ease-out peer-hover:visible peer-hover:translate-y-0 peer-hover:scale-100 peer-hover:opacity-100 peer-focus-visible:visible peer-focus-visible:translate-y-0 peer-focus-visible:scale-100 peer-focus-visible:opacity-100"
+          dangerouslySetInnerHTML={{ __html: metric.chartSvg }}
+        />
+      ) : null}
+    </>
+  );
+}
 
 function BuildCard({ build }: { build: Build }) {
   const [open, setOpen] = useState(build.featured);
@@ -23,9 +46,12 @@ function BuildCard({ build }: { build: Build }) {
               </span>
             ) : null}
           </div>
-          <h3 className="font-serif text-xl tracking-[-0.02em] text-fg">
-            {build.name}
-          </h3>
+          <div className="relative flex flex-wrap items-center gap-2">
+            <h3 className="font-serif text-xl tracking-[-0.02em] text-fg">
+              {build.name}
+            </h3>
+            {build.metric ? <MetricPill metric={build.metric} /> : null}
+          </div>
           <p className="mt-0.5 font-mono text-[11px] text-muted">{build.year}</p>
         </div>
         <div className="flex flex-wrap gap-2">
