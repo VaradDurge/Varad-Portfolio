@@ -12,9 +12,11 @@ function BuildCard({ build }: { build: Build }) {
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <div className="mb-2 flex flex-wrap items-center gap-2">
-            <span className="rounded-full border border-border px-2 py-0.5 font-mono text-[10px] tracking-wider text-muted uppercase">
-              {build.status}
-            </span>
+            {build.status ? (
+              <span className="rounded-full border border-border px-2 py-0.5 font-mono text-[10px] tracking-wider text-muted uppercase">
+                {build.status}
+              </span>
+            ) : null}
             {build.featured ? (
               <span className="font-mono text-[10px] tracking-wider text-fg uppercase">
                 ★ Featured

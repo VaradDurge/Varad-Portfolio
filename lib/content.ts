@@ -54,7 +54,7 @@ export type BuildLink = {
 export type Build = {
   id: string;
   name: string;
-  status: string;
+  status?: string;
   year: string;
   featured: boolean;
   blurb: string;
@@ -66,7 +66,6 @@ export const builds: Build[] = [
   {
     id: "argus",
     name: "Argus Labs",
-    status: "Beta",
     year: "2025",
     featured: true,
     blurb: "Forensic observability for AI agent pipelines. 12k+ installs on PyPI.",
