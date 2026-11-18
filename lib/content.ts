@@ -26,8 +26,8 @@ export const hero = {
 
 export const about = {
   paragraphs: [
-    "I’m 20, studying Electronics and Computer Engineering at PICT, Pune (Class of 2027). I founded Argus Labs, co-build Kami, and spend time in founder programs and builder rooms around India.",
-    "Argus is forensic observability for AI agent pipelines — currently in beta, with 12k+ installs on PyPI. I care about shipping systems that hold up when agents fail in production, not just demos that look good in a slide deck.",
+    "I’m 21, studying Electronics and Computer Engineering at PICT, Pune (Class of 2027). I founded Argus Labs, co-build Kami, and spend time in founder programs and builder rooms around India.",
+    "Argus is forensic observability for AI agent pipelines, with 12k+ installs on PyPI. I care about shipping systems that hold up when agents fail in production, not just demos that look good in a slide deck.",
   ],
   links: [
     {
@@ -40,7 +40,7 @@ export const about = {
     },
   ],
   snapshot: [
-    "Building Argus Labs (beta, 12k+ PyPI installs).",
+    "Building Argus Labs (12k+ PyPI installs).",
     "Co-building Kami.",
     "16VC Founder Fellow.",
     "In founder rooms across India.",

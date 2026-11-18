@@ -8,7 +8,7 @@ export function About() {
     <AccordionSection id="about" number="01" title="about" defaultOpen>
       <div className="space-y-4 text-[0.98rem] leading-relaxed text-muted">
         <p>
-          I’m 20, studying Electronics and Computer Engineering at PICT, Pune
+          I’m 21, studying Electronics and Computer Engineering at PICT, Pune
           (Class of 2027). I founded{" "}
           <a
             href={about.links[0].href}
